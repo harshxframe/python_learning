@@ -1,0 +1,7 @@
+Once upon a time in a quiet digital forest, a curious developer named Harsh discovered the magic of Python.
+With each line of code, he unlocked new abilities — reading files, replacing words, and controlling data like a wizard.
+Some said it was just another programming language, but to Harsh, it felt like a superpower.
+No semicolons, no clutter — just pure logic and flow.
+As he explored deeper, he stumbled upon log files,
+hidden words, and powerful functions.
+The joy of building returned, just like
