@@ -9,6 +9,7 @@ def funk(second):
 
 time1= time.perf_counter()
 
+
 #Normal code
 # funk(2)
 # funk(4)

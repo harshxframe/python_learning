@@ -10,6 +10,7 @@ def fuck(second):
     print("EMail send successfully?")
     return True
 
+
 timeFrame1 = time.perf_counter()
 
 email = ["harsh@gmail.com", "ayushi@gmail.com"]
