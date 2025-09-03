@@ -41,3 +41,18 @@ print(l1)
 
 l1.remove(43) # Use to remove value from the list
 print(l1)
+
+
+#Append use to push value in list
+
+
+
+print("###################")
+
+
+arr1 = [234,345,56,78]
+arr2 = [34,45,46,98,98]
+
+var = arr1 + arr2
+
+print(var)

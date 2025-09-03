@@ -15,7 +15,7 @@ print(type(marks))
 
 print(marks["Harry"])  # return error
 
-
+marks.update({"newStu":34})
 
 # mutable
 # Inordered
@@ -59,6 +59,8 @@ newList = newDic.pop("PhoneNumber")
 print(newDic)
 
 print(len(marks))
+
+
 
 
 

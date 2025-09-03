@@ -8,6 +8,7 @@ a1 = (1,) # create a empty tuple
 
 
 print(type(a))
+print(a[0])
 
 tup = ("name", "Harsh", 34, 4533, True)
 

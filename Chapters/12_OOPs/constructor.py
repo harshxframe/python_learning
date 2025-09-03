@@ -1,4 +1,4 @@
-from OOBs.oobs import HarshCompany
+from OOPs.oobs import HarshCompany
 
 
 class Emp:

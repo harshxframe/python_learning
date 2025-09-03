@@ -39,3 +39,5 @@ if __name__ == "__main__":
 
  # run inner function
  CompanyObject.postInCompany()
+
+ CompanyObject.withOutSelf()

@@ -2,7 +2,7 @@
 import os
 
 
-path = "/Users/harsh/python_learning/9_Chapter_file_IO/promlem/"
+path = "/Chapters/9_Chapter_file_IO/promlem/"
 
 with open("clonedText.txt", "r+") as file:
     data = file.read()
