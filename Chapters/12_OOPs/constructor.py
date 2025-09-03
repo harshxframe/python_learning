@@ -1,5 +1,3 @@
-from OOPs.oobs import HarshCompany
-
 
 class Emp:
 
@@ -8,12 +6,15 @@ class Emp:
         self.car = car
         print("Run on first execution")
         print(self.name)
+    def __commd__(self):
+        print("I called automatically")
 
 
 
 ClassObject = Emp( "harsh", "Mercedes")
 
 print(ClassObject.name)
+
 
 
 
