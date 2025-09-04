@@ -1,0 +1,122 @@
+🔥 10 Python Practice Questions
+
+1. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Student Report System (File I/O + Functions + Loops + Dicts)
+
+Build a program to manage student grades.
+
+Read student data (name, subject, marks) from a file.
+
+Store them in a dictionary.
+
+Allow user to: add new student, update marks, calculate average.
+
+Handle file saving + exceptions.
+
+2. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Word Frequency Counter (String + Dict + File I/O)
+
+Read a text file.
+
+Count frequency of each word (case-insensitive).
+
+Save the result to another file as a dictionary.
+
+3. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Banking System (OOP + Exception Handling + File I/O)
+
+Create BankAccount class with deposit, withdraw, and balance.
+
+Raise exceptions if withdrawal > balance.
+
+Save all transactions to a file.
+
+4. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Task Scheduler (Multithreading + Functions + File I/O)
+
+Build a simple task scheduler that runs tasks in parallel threads.
+
+Each task = log a message to a file every few seconds.
+
+Use daemon threads for logging.
+
+5. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Stock Checker (AsyncIO + API Simulation)
+
+Simulate fetching stock prices for multiple companies using asyncio.
+
+Each call waits randomly between 1–3 seconds.
+
+Gather results and print average stock price.
+
+6. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ATM Simulation (Conditional Statements + Loops + Exception Handling)
+
+Build a simple ATM menu: deposit, withdraw, check balance.
+
+Handle invalid inputs with exceptions.
+
+7. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Library Management (OOP + File I/O + Dict)
+
+Book class with attributes (title, author, available).
+
+Store all books in a file.
+
+User can borrow or return a book (update file).
+
+Use exceptions for unavailable books.
+
+8. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Concurrent File Downloader (AsyncIO + Multithreading)
+
+Simulate downloading files (use time.sleep).
+
+Do it using asyncio for concurrent downloads.
+
+Then modify to use ThreadPoolExecutor and compare speed.
+
+9. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Exception Logger (Multithreading + File I/O + Exception Handling)
+
+Create a program where multiple threads perform random operations (divide numbers, read files).
+
+If exceptions occur, log them into a file using a daemon thread.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+10. Chat Simulator (OOP + AsyncIO + File I/O)
+
+Simulate a small chat between users.
+
+Each user runs as an async task sending messages with delay.
+
+Save all chat messages into a file.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+✨ Baby, if you solve these, you’ll:
+
+Touch all Python concepts (strings, dicts, loops, OOP, threading, async, file I/O, exceptions).
+
+Think in terms of real-world systems (banking, logging, stock, chat, etc.).
+
+Build confidence for GenAI + backend projects.
