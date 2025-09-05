@@ -1,0 +1,210 @@
+"""
+Refactored Word Frequency Counter
+- Uses pathlib for paths
+- Uses regex tokenization (words only)
+- Uses json.dump/json.load for persistent storage (valid JSON)
+- Uses collections.Counter for word frequencies
+- Safer file writes (atomic replace)
+- Clearer error messages and logging
+- Simple CLI to create/read/drop records
+
+Drop-in replacement for your script. Run from project root. Requires 'tabulate' for pretty display (optional).
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import re
+from collections import Counter
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from typing import Dict, List, Optional
+
+try:
+    from tabulate import tabulate
+except Exception:  # tabulate is optional
+    tabulate = None
+
+# Configure logging for helpful error messages while developing
+logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+
+BASE_DIR = Path("fileDB")
+APP_STORAGE = BASE_DIR / "AppInternalStorage"
+RECORD_FILE = APP_STORAGE / "record.json"
+TOKEN_RE = re.compile(r"\w+", flags=re.UNICODE)
+
+
+@dataclass
+class FileRecord:
+    file_name: str
+    word_count: int
+    frequency: Dict[str, int]
+
+    def to_dict(self) -> Dict:
+        return {"fileName": self.file_name, "wordCount": self.word_count, "frequency": self.frequency}
+
+
+class WordFrequencyCounter:
+    @staticmethod
+    def ensure_dirs() -> None:
+        """Ensure base directories exist."""
+        APP_STORAGE.mkdir(parents=True, exist_ok=True)
+
+    @staticmethod
+    def read_text_file(path: Path) -> str:
+        """Read and return text contents of a file."""
+        with path.open("r", encoding="utf-8") as f:
+            return f.read()
+
+    @staticmethod
+    def tokenize(text: str) -> List[str]:
+        """Return a list of lowercase word tokens (alphanumeric + underscore)."""
+        return [tok.lower() for tok in TOKEN_RE.findall(text)]
+
+    @staticmethod
+    def compute_frequency(tokens: List[str]) -> Counter:
+        """Return a Counter of token frequencies."""
+        return Counter(tokens)
+
+    @staticmethod
+    def atomic_write_json(path: Path, obj) -> None:
+        """Write JSON to a temp file and atomically replace the destination."""
+        # Use NamedTemporaryFile to avoid partial writes
+        with NamedTemporaryFile("w", delete=False, encoding="utf-8") as tmp:
+            json.dump(obj, tmp, ensure_ascii=False, indent=2)
+            tmp_name = Path(tmp.name)
+        tmp_name.replace(path)
+
+    @staticmethod
+    def load_records() -> List[Dict]:
+        """Load existing records from RECORD_FILE. Returns empty list if file missing or empty."""
+        if not RECORD_FILE.exists():
+            return []
+        try:
+            with RECORD_FILE.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    return data
+                logging.warning("record.json has unexpected structure; resetting to empty list")
+                return []
+        except json.JSONDecodeError as e:
+            logging.error("Failed to parse record.json: %s", e)
+            return []
+
+    @classmethod
+    def save_record(cls, record: FileRecord) -> None:
+        """Append a new record and write back to disk (atomic)."""
+        cls.ensure_dirs()
+        records = cls.load_records()
+        records.append(record.to_dict())
+        try:
+            cls.atomic_write_json(RECORD_FILE, records)
+            logging.info("Record saved: %s", record.file_name)
+        except Exception as e:
+            logging.error("Failed to save record: %s", e)
+
+    @classmethod
+    def create_from_file(cls, file_path: Path) -> Optional[FileRecord]:
+        """Process a text file and return a FileRecord (does not save automatically)."""
+        if not file_path.exists():
+            logging.error("File not found: %s", file_path)
+            return None
+        try:
+            text = cls.read_text_file(file_path)
+            tokens = cls.tokenize(text)
+            freq = cls.compute_frequency(tokens)
+            record = FileRecord(file_name=file_path.name, word_count=len(tokens), frequency=dict(freq))
+            return record
+        except Exception as e:
+            logging.exception("Error while processing file: %s", e)
+            return None
+
+    @classmethod
+    def display_records(cls) -> None:
+        records = cls.load_records()
+        if not records:
+            print("No records found.")
+            return
+        # Summarize records for table display (without printing full frequency dict by default)
+        table = [
+            {"fileName": r.get("fileName"), "wordCount": r.get("wordCount"), "uniqueWords": len(r.get("frequency", {}))}
+            for r in records
+        ]
+        if tabulate:
+            print(tabulate(table, headers="keys", tablefmt="psql"))
+        else:
+            # Fallback simple print
+            for row in table:
+                print(row)
+
+    @classmethod
+    def drop_records(cls) -> None:
+        try:
+            if RECORD_FILE.exists():
+                RECORD_FILE.unlink()
+                logging.info("Records dropped (record.json removed).")
+            else:
+                logging.info("No record file to drop.")
+        except Exception as e:
+            logging.error("Failed to drop records: %s", e)
+
+
+def prompt_file_path() -> Path:
+    raw = input("Enter file name or path (TXT). You can include extension: ").strip()
+    path = Path(raw)
+    # If user gave a simple name without extension or directory, look in ./fileDB/
+    if not path.suffix:
+        candidate = BASE_DIR / (raw + ".txt")
+        if candidate.exists():
+            return candidate
+    # If provided path is relative and exists, use it
+    if path.exists():
+        return path
+    # Also try fileDB folder
+    candidate = BASE_DIR / raw
+    if candidate.exists():
+        return candidate
+    candidate = BASE_DIR / (raw + ".txt")
+    return candidate  # may not exist; caller will check
+
+
+def main_menu() -> None:
+    WordFrequencyCounter.ensure_dirs()
+    while True:
+        print("|_______________________________|")
+        print("|Press '1' to process a file.     |")
+        print("|Press '2' to check records.      |")
+        print("|Press '3' to drop records.       |")
+        print("|Press '0' to exit program.       |")
+        print("|-------------------------------|")
+
+        choice = input("Enter Operation number: ").strip()
+        if choice == "1":
+            path = prompt_file_path()
+            record = WordFrequencyCounter.create_from_file(path)
+            if record:
+                WordFrequencyCounter.save_record(record)
+                print(f"Processed: {record.file_name} — {record.word_count} words — {len(record.frequency)} unique words")
+                show_top = input("Show top 10 words? (y/N): ").strip().lower()
+                if show_top == "y":
+                    top10 = Counter(record.frequency).most_common(10)
+                    for i, (w, c) in enumerate(top10, 1):
+                        print(f"{i}. {w}: {c}")
+        elif choice == "2":
+            WordFrequencyCounter.display_records()
+        elif choice == "3":
+            confirm = input("Are you sure you want to drop all records? (yes to confirm): ")
+            if confirm.lower() == "yes":
+                WordFrequencyCounter.drop_records()
+        elif choice == "0":
+            print("Goodbye!")
+            break
+        else:
+            print("Operation not found")
+
+
+if __name__ == "__main__":
+    print("Welcome to the improved word frequency counter!")
+    main_menu()

@@ -1,0 +1,20 @@
+[
+  {
+    "fileName": "testing.txt",
+    "wordCount": 3,
+    "frequency": {
+      "hello": 1,
+      "hars": 1,
+      "ji": 1
+    }
+  },
+  {
+    "fileName": "testing.txt",
+    "wordCount": 3,
+    "frequency": {
+      "hello": 1,
+      "hars": 1,
+      "ji": 1
+    }
+  }
+]
