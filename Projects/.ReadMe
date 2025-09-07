@@ -1,6 +1,6 @@
 🔥 10 Python Practice Questions
 
-1. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
 Student Report System (File I/O + Functions + Loops + Dicts)
 
@@ -14,7 +14,7 @@ Allow user to: add new student, update marks, calculate average.
 
 Handle file saving + exceptions.
 
-2. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
 Word Frequency Counter (String + Dict + File I/O)
 

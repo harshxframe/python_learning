@@ -1,1 +1,1 @@
-[{'fileName': 'testing.txt', 'wordCount': 1924}, {'fileName': 'paragraph.txt', 'wordCount': 2304}, {'fileName': 'paragraph.txt', 'wordCount': 2364}]
+[{'fileName': 'testing.txt', 'wordCount': 1924}, {'fileName': 'paragraph.txt', 'wordCount': 2304}, {'fileName': 'paragraph.txt', 'wordCount': 2364}, {'fileName': 'max.txt', 'wordCount': 8}]
