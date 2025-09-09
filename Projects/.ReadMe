@@ -26,7 +26,6 @@ Save the result to another file as a dictionary.
 
 3. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
-
 Banking System (OOP + Exception Handling + File I/O)
 
 Create BankAccount class with deposit, withdraw, and balance.
@@ -35,7 +34,7 @@ Raise exceptions if withdrawal > balance.
 
 Save all transactions to a file.
 
-4. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
 
 Task Scheduler (Multithreading + Functions + File I/O)

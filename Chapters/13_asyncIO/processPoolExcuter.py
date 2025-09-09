@@ -8,6 +8,7 @@ lis = [1,2,3]
 
 def checkStock(stock):
     print("Stocking in progress...")
+    print(stock)
     time.sleep(3)
     print("\nStock operation done {quan: 34, ave:True}")
 
@@ -18,7 +19,7 @@ def checkStock(stock):
 async def makeRequest():
     loop = asyncio.get_running_loop()
     with ThreadPoolExecutor(max_workers=3) as executor:
-        tasks = [loop.run_in_executor(executor, checkStock, i) for i in lis]
+        tasks = [loop.run_in_executor(executor, checkStock,i) for i in lis]
         await asyncio.gather(*tasks)
         print("\nStock operation done {quan: 34, ave:True}")
 

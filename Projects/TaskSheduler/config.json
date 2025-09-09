@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "id": "task1",
+      "name": "Fast Logger",
+      "message": "Logging every 2 seconds",
+      "interval_seconds": 2,
+      "output_file": "fast_log.txt",
+      "enabled": true
+    },
+    {
+      "id": "task2",
+      "name": "Medium Logger",
+      "message": "Logging every 5 seconds",
+      "interval_seconds": 5,
+      "output_file": "medium_log.txt",
+      "enabled": true
+    },
+    {
+      "id": "task3",
+      "name": "Slow Logger",
+      "message": "Logging every 10 seconds",
+      "interval_seconds": 10,
+      "output_file": "slow_log.txt",
+      "enabled": true
+    },
+    {
+      "id": "task4",
+      "name": "Combined Logger",
+      "message": "Shared file logger writing every 7 seconds",
+      "interval_seconds": 7,
+      "output_file": "combined_log.txt",
+      "enabled": true
+    }
+  ]
+}
