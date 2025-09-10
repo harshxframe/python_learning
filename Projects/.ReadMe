@@ -45,7 +45,7 @@ Each task = log a message to a file every few seconds.
 
 Use daemon threads for logging.
 
-5. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+5. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
 
 Stock Checker (AsyncIO + API Simulation)
