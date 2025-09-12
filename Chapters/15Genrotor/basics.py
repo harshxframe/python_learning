@@ -1,9 +1,6 @@
 # define the generator
 
 
-
-
-
 def callRequest():
     yield "Make request for send email"    # Here when a call once it become pase on that state and resume where it has paused. Does not exist from memory still in memory with privious state
     yield "Make phone call notification"
