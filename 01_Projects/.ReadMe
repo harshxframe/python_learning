@@ -1,4 +1,4 @@
-🔥 10 Python Practice Questions
+🔥 9 Python Practice Questions
 
 1. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
@@ -87,7 +87,7 @@ Do it using asyncio for concurrent downloads.
 
 Then modify to use ThreadPoolExecutor and compare speed.
 
-9. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+9. ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DONE
 
 Exception Logger (Multithreading + File I/O + Exception Handling)
 
@@ -97,16 +97,6 @@ If exceptions occur, log them into a file using a daemon thread.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-10. Chat Simulator (OOP + AsyncIO + File I/O)
-
-Simulate a small chat between users.
-
-Each user runs as an async task sending messages with delay.
-
-Save all chat messages into a file.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 ✨ Baby, if you solve these, you’ll:

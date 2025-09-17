@@ -1,0 +1,121 @@
+🚀 12-Day Python Mastery Exercises
+
+#############################################################################
+1. To-Do Manager (File I/O + Dict + CLI)
+
+CLI app where user can add, list, mark done, delete tasks.
+
+Save all tasks into a JSON file so they persist between runs.
+
+#############################################################################
+
+2. URL Shortener (OOP + Dict + File I/O)
+
+Create a class that generates short codes (like abc123) for long URLs.
+
+Store mappings in a file (JSON).
+
+User can retrieve original URL using short code.
+
+#############################################################################
+
+3. Quiz Game (Functions + File I/O + Dict + Random)
+
+Store questions + answers in a JSON file.
+
+Randomly ask user 5 questions, score them.
+
+Track and save high scores in a file.
+
+#############################################################################
+
+4. Expense Tracker (OOP + File I/O + Dict + DateTime)
+
+Add expenses with category + amount + timestamp.
+
+Save to JSON or CSV.
+
+Show total + per-category summary.
+
+#############################################################################
+
+5. Weather Data Analyzer (File I/O + Loops + Dict + JSON)
+
+Given a weather.json file with daily data (temp, humidity).
+
+Find highest/lowest temperature, average humidity.
+
+Handle missing values with exceptions.
+
+#############################################################################
+
+6. Chat Logger (OOP + File I/O + Exceptions)
+
+Simulate 2 users chatting (just function calls).
+
+Each message gets a timestamp.
+
+Save to a file in JSON lines format.
+
+#############################################################################
+
+7. Threaded Timer App (Multithreading + Functions)
+
+Create multiple countdown timers in parallel threads.
+
+Each logs “Timer X finished” into a file.
+
+Use daemon threads for background tasks.
+
+#############################################################################
+
+8. Mini Web Scraper (Requests + File I/O + Dict)
+
+Fetch a webpage (use requests).
+
+Extract all links (<a href="">).
+
+Save them in a JSON file.
+
+Handle exceptions for invalid URLs.
+
+#############################################################################
+
+9. Async Task Runner (AsyncIO + Tasks)
+
+Write an async function do_work(name, delay) that simulates work with asyncio.sleep.
+
+Run 5–10 tasks concurrently and show when each finishes.
+
+
+#############################################################################
+
+10. Markdown Notes App (File I/O + OOP + CLI)
+
+Add notes that are saved as .md files.
+
+Support commands: add, list, view.
+
+Optionally convert to HTML using markdown library.
+
+#############################################################################
+
+11. Mini Key-Value Store (OOP + File I/O + JSON)
+
+Build a simple database: set key value, get key, delete key.
+
+Persist in a JSON file.
+
+Add exception if key not found.
+
+#############################################################################
+
+12. URL Monitor (AsyncIO + File I/O + Exception Handling)
+
+Input: list of URLs from a file.
+
+Async check (ping) if they are reachable.
+
+Save results (reachable/unreachable + timestamp) in JSON.
+
+#############################################################################
